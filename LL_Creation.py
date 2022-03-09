@@ -1,0 +1,21 @@
+
+class Node:
+
+    def __init__(self, value= None):
+        self.value = value
+        self.next = None
+
+class SinglyLL:
+
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+
+Sll = SinglyLL()
+node1 = Node(1)
+node2 = Node(2)
+
+Sll.head = node1
+Sll.head.next= node2
+Sll.tail = node2
