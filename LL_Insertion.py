@@ -1,7 +1,3 @@
-
-
-
-
 class Node:
 
     def __init__(self, value= None):
@@ -9,7 +5,7 @@ class Node:
         self.next = None 
         
 
-class SinglyLL:
+class SinglyLinkedList:
 
     def __init__(self):
         self.head = None
@@ -21,7 +17,7 @@ class SinglyLL:
             yield node
             node = node.next
 
-    def insertSLL(self, value, location):
+    def insertSingleLinkedList(self, value, location):
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
@@ -43,5 +39,17 @@ class SinglyLL:
                 nextnode = tempnode.next # Givet the refetence of the next node. - We have to insert a node between current node and the it's next node.
                 tempnode.next  = new_node # current elment is tempnode, so pointing it to the new node
                 new_node.next = nextnode # Pointing the new node to the next node
+                if tempnode == self.tail:
+                    self.tail = new_node
+
+singlyLL = SinglyLinkedList()
+singlyLL.insertSingleLinkedList(1,1)
+singlyLL.insertSingleLinkedList(2,-1)
+singlyLL.insertSingleLinkedList(3,1)
+singlyLL.insertSingleLinkedList(4,1)
+singlyLL.insertSingleLinkedList(0,0)
+singlyLL.insertSingleLinkedList(0,3)
+print([node.value for node in singlyLL])
+
 
 
