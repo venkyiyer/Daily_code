@@ -1,0 +1,10 @@
+SELECT
+b.booth_number,
+b.booth_type,
+vba.market_date,
+v.vendor_name,
+v.vendor_id
+FROM farmer_market.booth b
+LEFT JOIN farmer_market.vendor_booth_assignments vba ON b.booth_number = vba.booth_number
+INNER JOIN farmer_market.vendor v ON v.vendor_id = vba.vendor_id
+ORDER by vba.market_date;
