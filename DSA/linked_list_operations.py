@@ -94,13 +94,19 @@ class LinkedList:
         return False
 
     def pop_first(self):
+        if self.length == 0:
+            return None
         popped_node = self.head
-        self.head = self.head.next
-        popped_node.next = None
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            popped_node.next = None
         self.length -= 1
         return popped_node
     
-    
+
 new_linked_list = LinkedList()
 new_linked_list.append(15)
 new_linked_list.append(20)
