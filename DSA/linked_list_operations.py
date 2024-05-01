@@ -106,6 +106,40 @@ class LinkedList:
         self.length -= 1
         return popped_node
     
+    def pop_last(self):
+        if self.length == 0:
+            return None
+        popped_node = self.tail
+        if self.length ==1 :
+            self.head = None
+            self.tail = None
+        temp = self.head
+        while temp.next is not self.tail:
+           temp = temp.next
+        self.tail = temp
+        temp.next = None
+        self.length-=1
+        return popped_node 
+
+    def remove_node(self, index):
+        if index >= self.length or index<-1:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length-1:
+            return self.pop_last()
+        prev_node = self.get_value(index-1)
+        popped_node = prev_node.next
+        prev_node.next = popped_node.next
+        popped_node.next = None
+        self.length -=1
+        return popped_node
+    
+    def remove_all(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+
 
 new_linked_list = LinkedList()
 new_linked_list.append(15)
