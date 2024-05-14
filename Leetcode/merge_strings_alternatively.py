@@ -8,4 +8,3 @@ class Solution:
 ob = Solution()
 ob.mergeAlternatively('Venky')
             
-
