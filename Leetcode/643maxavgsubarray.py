@@ -5,15 +5,17 @@ class Solution:
         for i in range(k):
             count += nums[i]
 
-        max_avg =  count // k 
+        max_avg =  count / k 
 
         for j in range(k,n):
             count+= nums[j]
             count-= nums[j-k]
 
-        avg = count / k
+            avg = count / k
 
-        return max(max_avg, avg)
+            max_avg = max(max_avg, avg)
+        
+        return max_avg
 
 obj = Solution()
-obj.findMaxAverage([1,12,-5,-6,50,3], 4)
+print(obj.findMaxAverage([1,12,-5,-6,50,3], 4))
