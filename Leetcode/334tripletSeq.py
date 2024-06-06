@@ -1,16 +1,14 @@
 class Solution:
     def increasingTriplet(self, nums):
-        count = 0
-        for i in range(1, len(nums)):
-            print(nums[i])
-            print(nums[i-1])
-            if nums[i] > nums[i-1]:
-                count +=1
-            
-        if count >=3:
-            return True
-        else:
-            return False
+        n1 = n2 = float('inf')
+        for i in (nums):
+            if i < n1:
+                n1 = i
+            elif i < n2:
+                n2 = i
+            else:
+                return True    
+        return False
             
 obj = Solution()
-obj.increasingTriplet([2,1,5,0,4,6])
+print(obj.increasingTriplet([1,2,1,3]))
