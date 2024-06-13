@@ -1,21 +1,22 @@
 class Solution:
     def compress(self, chars):
-        get_numbers = {}
-        make_list = []
-        for i in chars:
-            if i not in get_numbers:
-                get_numbers[i]=1
-            else:
-                get_numbers[i] +=1
+        l = len(chars)
+        i, j = 0,0
+        while i < l:
+            count = 1
+            while i < l and chars[i] == chars[i+1]:
+                count +=1
+                i +=1
+            chars[j] = chars[i]
+            j +=1
+            if count > 1:
+                for c in str(count):
+                    chars[j] = c
+                    j +=1
+            i += 1
 
-        for k, v in get_numbers.items():
-            if v == 1:
-                make_list.append(k)
-            elif len(v)==2:
-                make_list.append(k)
-                make_list.extend([int(x) for x in str(v)])
+        return j
 
-        print(make_list)
 
 obj = Solution()
-obj.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
+print(obj.compress(["a","a","b","b","c","c","c"]))
