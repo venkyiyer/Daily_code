@@ -1,18 +1,14 @@
 class Solution:
     def isSubsequence(self, s, t):
-        len_s = len(s)
-        lst = []
-        for i in range(len(t)):
-            if t[i] in s:
-                lst.append(i)
-        
-        if len(lst)== len_s and lst == sorted(lst):
-            return True
-        else:
-            return False
+        pts_s , pts_t =  0,0 
+        while pts_s < len(s) and pts_t < len(t):
+            if s[pts_s] == t[pts_t]:
+                pts_s+=1
+            pts_t +=1
+        return pts_s>= len(s)
         
 obj = Solution()
-print(obj.isSubsequence(s = "acb", t = "ahbgdc"))
+print(obj.isSubsequence(s = "abc", t = "ahbgdc"))
             
 
 
