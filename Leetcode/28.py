@@ -1,13 +1,11 @@
 haystack = "sadbutsad"
 needle = "sad"
 
-i, count = 0, 0
+if needle == "":
+    print(0)
 
-for r in range(len(needle)):
-    if needle[r] == haystack[r]:
-        while r < len(needle):
-            if needle[r] == haystack[r]:
-                count+=1
-        if count == len(needle):
-            print(r)
-    print(-1)
+for i in range(len(haystack) + 1 - len(needle)):
+    print(haystack[i:i+len(needle)])
+    if haystack[i:i+len(needle)] == needle:
+        print(i)
+print(-1)
