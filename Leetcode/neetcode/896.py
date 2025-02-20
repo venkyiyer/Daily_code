@@ -1,10 +1,9 @@
-nums = [1,1,2]
+nums = [1,3,2]
 
 class Solution:
     def isMonotonic(self, nums):
-        getmax = max(nums[:2])
-        getmaxindex = nums.index(getmax)
-        if getmaxindex == 1:  
+        getdiff= nums[0] - nums[-1]
+        if getdiff<0:  
             for i in range(len(nums)-1):
                 print(nums[i])
                 print(nums[i+1])
