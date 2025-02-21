@@ -1,0 +1,30 @@
+--Docker Notes---
+*****************
+
+# docker ps : To check all the running containers
+
+# docker run <image id> : It's an equivalent command to create and start a container
+
+# docker ps --all : To check all the previously executed containers
+
+# docker stop <container id> : Give a bit a time to stop the container (10 secs or else docker kill will be executed automatically)
+
+# docker kill <container id> : Kills the execution of the container instantly
+
+# Eg: Suppose you run a redis server image and now you want to access the redis server inside the container using redis cli 
+
+docker run redis-server : This starts the redis server 
+
+docker ps : gives you  the redis server container id
+
+docker exec -it <container id> redis-cli : This allows you to enter the container and execute the redis-cli command. 
+Once you have gained access to the container, you can access the redis server through redis-cli commands
+
+What's the purpose of IT flag : It is actually -i -t. -i is generally used as an input to the container from the terminal. While -t
+is the format of the output you get back on the terminal. -i -t is similar to -it
+
+# docker exec -it <container id> sh : To open the terminal inside container. Very important. Majorly used for debugging purposes
+
+# docker run -it busybox sh : Can be used while running the image as well. 
+
+#! Suppose we have two containers running in parallel, do remember that both the containers do not share a common harddisk. 
