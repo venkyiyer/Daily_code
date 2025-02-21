@@ -28,3 +28,31 @@ is the format of the output you get back on the terminal. -i -t is similar to -i
 # docker run -it busybox sh : Can be used while running the image as well. 
 
 #! Suppose we have two containers running in parallel, do remember that both the containers do not share a common harddisk. 
+
+# Creating a DockerFile:
+    - Specify a base image : FROM alpine > It's like providing an initial starting point. Like OS to create an image (Contains all pre-installed set   of programs) E.g: Alpine/ Linux/ MacOS etc. 
+    - Run some commands to install programs : RUN apk add --update redis
+    - Specify a commmand to run on container startup : CMD ['redis-server']
+
+# What happens internally -
+    - FROM :  It downloads an image (behaves like an OS that contains all programs for creating an image) and now 
+      the docker file will use this image as  a base (or OS). 
+    - RUN : Gets the image from the previous step, this image is used to create a temporary container, inside this container
+      the command : apk add --update redis is executed and this creates a new file snapshot with the dependencies installed. 
+      A new image with this snapshot is created. NOTE: We started with an image, now we have an image with redis server installed in it. 
+    - CMD : Gets the image from the previous step, runs a temporary container, inside the contained we execute this command : 
+      CMD ['redis-server']. A new file snapshot is captured and the temporary container is deleted.
+      As there are no more steps, a new image is generated with all the above steps. Final image!
+
+ # Port mapping  
+      Any requests coming on localhost:8080 should be forwarded to a specific (8080 or any other port) in the container. 
+      This we need to do because the container cannot access localhost directly
+
+      docker run -p 8080 (localhost): 8080 (container port) <image id>
+
+# Create a working directory inside Container
+      /usr/app will be created in the container and copy will copy all the cwd files to the workdir (/usr/app)
+
+      WORKDIR /usr/app 
+      COPY ./ ./ 
+
