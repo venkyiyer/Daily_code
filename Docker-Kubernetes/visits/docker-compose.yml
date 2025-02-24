@@ -1,0 +1,14 @@
+# The version of docker-compose to compile this file
+version: '3'
+
+# Services means containers
+services:
+  redis-server:
+    image: 'redis'
+  
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "4000:8081"
+

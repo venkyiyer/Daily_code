@@ -56,3 +56,10 @@ is the format of the output you get back on the terminal. -i -t is similar to -i
       WORKDIR /usr/app 
       COPY ./ ./ 
 
+# Docker compose
+    This is used to run multiple containers at once. 
+
+    docker-compose up: To start multiple containers
+    docker-compose up --build: To build the containers and run the images
+    docker-compose ps: To show the status of the containers. This should be done inside the folder where dockercompose.yml lies
+
