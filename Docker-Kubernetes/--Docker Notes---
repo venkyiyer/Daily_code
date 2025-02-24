@@ -62,4 +62,7 @@ is the format of the output you get back on the terminal. -i -t is similar to -i
     docker-compose up: To start multiple containers
     docker-compose up --build: To build the containers and run the images
     docker-compose ps: To show the status of the containers. This should be done inside the folder where dockercompose.yml lies
+    docker-compose down: To stop the all the containers
 
+# To build a docker file with specific name
+    docker build -f Dockerfile.dev . (Dockerfile.dev is the name of Docker file)
