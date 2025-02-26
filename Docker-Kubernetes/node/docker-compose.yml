@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web: 
+    # This below command builds the existing Dockerfile inside the pwd
+    build: 
+      # Provides a context to understand where all the files has to be pulled from to do a build. So a '.' says take
+      # all the files from the pwd
+      context: .
+      # Location of the dockerfile
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app

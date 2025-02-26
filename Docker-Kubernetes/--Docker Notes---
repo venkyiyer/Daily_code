@@ -66,3 +66,21 @@ is the format of the output you get back on the terminal. -i -t is similar to -i
 
 # To build a docker file with specific name
     docker build -f Dockerfile.dev . (Dockerfile.dev is the name of Docker file)
+
+# Docker volumes
+  Docker volumes is used as a reference to the local folder such that any changes happening in the local folder can be replicated 
+  inside the docker container as well
+
+  docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>
+  
+  /app/node_modules: Book marking node modules folder in the local. This means that this folder should not be mapped to anything. Do not mess with this folder. AS these files might be already installed in the container, it's better to not map it at all. 
+  $(pwd):/app: Map the pwd (present working directory) into '/app' folder within the container. So here the pwd will be your local project folder.
+  Whatever is inside the local project folder, map everything to the /app folder inside the container
+
+# Multi-step Build 
+  Having multi-step builds, it is possible to use two base images at a time. 
+  for example: Check -> project/frontend/Dockerfile
+  This file is divided into two phases. Build phase and run phase. 
+  Build phase is "npm run build" to build /app/build and run phase is to copy the build file and paste it inside the nginx container
+
+  COPY --from=builder /app/build/ /usr/share/nginx/html
