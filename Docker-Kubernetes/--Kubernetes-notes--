@@ -1,0 +1,93 @@
+# What is Kubernetes? Why use it? 
+It is a system for running many different containers over multiple different machines. When you want to run
+many different containers (scale your application) with different images we use Kubernetes
+
+# What is Kubernetes cluster? 
+A cluster is a combination of Master and nodes. 
+Master - Gives instructions to the nodes. Controls each of the nodes
+Nodes - Virtual Machines or physical systems that run containers
+
+# Development vs Production
+In development environment we use minikube to create/ manage nodes/ clusters and Kubectl to manage the containers within the node
+In production we use managed solutions like AWS EKS, Google Kubernetes Engine etc. 
+
+# All about config files
+It's used for creating 'Objects'. 
+> Check for simplek8s> client-pod.yml and client-node-port.yml
+
+When you execute these files using kubectl, it creates 'Objects' inside Kubernetes cluster. 'Objects' serve different purposes -
+running container, monitoring container, setting up networking, etc. 
+
+There are 4 types of objects that can be created:
+    - Service
+    - Pod
+    - StatefulSet
+    - ReplicaController
+
+apiVersion: Gives a set of object types that can be created/ used. 
+            For e.g: apiVersion: apps/v1 will give you the options of ControllerRevision and StatefulSet
+            So, if you want to create a Pod object, you cannot use the apps/v1 api version. You will have to use
+            the apiVersion: v1
+
+kind: The type of object we want to create inside the cluster
+
+Pod: Inside a node, we have pod that can run multiple/ group containers. These are containers which are very tightly coupled
+     and are dependent of each other. So, a particular pod can group such containers and are run in parallel. Whenever we want to 
+     run any container, we have to deploy pods and that's the only way to run a container
+
+So, when we check client-pod.yml, we can see that we are creating a pod service inside which we will be running a container of name ...
+and opening port 3000. 
+                spec:
+                containers:
+                    - name: client
+                    image: stephengrider/multi-client
+                    ports:
+                        - containerPort: 3000
+
+Metadata: Provides information about the pod 
+
+                metadata:
+                    name: client-pod
+                    labels:
+                        component:web
+
+Labels and selectors are used to understand whom to forward the network traffic to. From a service to a pod. 
+Any labels that matches the selector, the service will forward to all those pods
+
+- Inside client-pod.yml    
+        
+        metadata:
+        name: client-pod
+        labels:
+            component:web
+- Inside client-node-port.yml 
+
+        spec:
+        type: NodePort
+        ports:
+            - ports: 3050
+            targetPort: 3000
+            nodePort: 31515
+        selector:
+            component: web
+
+When kind: Service
+It is used to setup networking in a Kubernetes cluster
+
+There are 4 types of sub-services:
+ - ClusterIP:
+
+ - NodePort: Exposes a container to the outside world (For dev purposes only)
+        spec:
+            type: NodePort
+            ports:
+              - port: 3050 (for communication between pod to pod)
+                targetPort: 3000 (the port inside the pod that is mapped to the container)
+                nodePort: 31515 (URL the user needs to type to access the container/ pod)
+ 
+ - LoadBalancer: 
+ 
+ - Ingress:
+
+# Feed the config file to kubectl
+    kubectl apply -f <filename>
