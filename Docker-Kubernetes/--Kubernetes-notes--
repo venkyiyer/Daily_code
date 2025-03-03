@@ -11,6 +11,8 @@ Nodes - Virtual Machines or physical systems that run containers
 In development environment we use minikube to create/ manage nodes/ clusters and Kubectl to manage the containers within the node
 In production we use managed solutions like AWS EKS, Google Kubernetes Engine etc. 
 
+To start minikube : minikube start
+
 # All about config files
 It's used for creating 'Objects'. 
 > Check for simplek8s> client-pod.yml and client-node-port.yml
@@ -90,4 +92,13 @@ There are 4 types of sub-services:
  - Ingress:
 
 # Feed the config file to kubectl
-    kubectl apply -f <filename>
+    kubectl apply -f <filename> 
+
+# To check the status of kubectl
+    kubectl get pods/ kubctl get service (depends on the objects that have been created using the config file)
+
+# To access the application
+    You need to check which ip address the minikube is running on 
+
+    minikube ip
+    E.g: http://192.168.49.2:31515/
