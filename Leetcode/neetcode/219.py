@@ -1,5 +1,5 @@
-nums = [1,2,3,1] 
-k = 3
+nums = [1,2,3,1,2,3] 
+k = 2
 
 class Solution:
     def containsNearbyDuplicate(self, nums,k):
@@ -11,6 +11,7 @@ class Solution:
                 l +=1
             if nums[r] in window:
                 return True
+            window.add(nums[r])
         return False
 
 obj = Solution()
