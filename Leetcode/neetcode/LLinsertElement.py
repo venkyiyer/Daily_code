@@ -9,17 +9,30 @@ class LinkedList:
         self.tail = None
         self.length =0
 
+    def __str__(self):
+        tempNode = self.head
+        result = ''
+        while tempNode is not None:
+            result += str(tempNode.value)
+            if tempNode.next is not None:
+                result += '->'
+            tempNode = tempNode.next
+        
+        return result
+
     def append(self, value):
         new_node  = Node(value)
         if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
-            self.head = new_node
+            self.tail.next = new_node
             self.tail = new_node
         self.length +=1
+    
+    
 
-new_linked_list = LinkedList()
+new_linked_list = LinkedList()  
 new_linked_list.append(10)
 new_linked_list.append(20)
-print(new_linked_list.length)
+print(new_linked_list)
