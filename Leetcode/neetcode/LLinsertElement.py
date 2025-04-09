@@ -86,7 +86,18 @@ class LinkedList:
             for _ in range(index):
                 current = current.next
             
-            return current.value
+            return current
+    
+    def set(self, index, target):
+        # current = self.head
+        # for _ in range(index):
+        #     current = current.next
+        # current.value = target
+        temp_node = self.get(index)
+        if temp_node:
+            temp_node.value = target
+            return True
+        return False
 
 
 new_linked_list = LinkedList()  
@@ -98,3 +109,5 @@ print(new_linked_list)
 new_linked_list.traverse()
 print("SEARCH-->", new_linked_list.search(24))
 print("GET-->", new_linked_list.get(-1))
+new_linked_list.set(2, 35)
+print(new_linked_list)
