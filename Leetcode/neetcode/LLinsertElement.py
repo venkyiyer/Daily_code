@@ -60,9 +60,41 @@ class LinkedList:
         self.length +=1
         return True
 
+    def traverse(self):
+        temp_node = self.head
+        while temp_node:
+            print(temp_node.value)
+            temp_node = temp_node.next
+
+    def search(self, target):
+        current = self.head
+        index = 0
+        while current:
+            if current.value == target:
+                return index
+            current = current.next
+            index +=1
+        return -1
+
+    def get(self, index):
+        if index<-1 or index > self.length:
+            return None
+        if index == -1:
+            return self.tail.value
+        else:
+            current = self.head
+            for _ in range(index):
+                current = current.next
+            
+            return current.value
+
+
 new_linked_list = LinkedList()  
 new_linked_list.append(10)
 new_linked_list.append(20)
 new_linked_list.prepend(14)
 new_linked_list.insert(33,1)
 print(new_linked_list)
+new_linked_list.traverse()
+print("SEARCH-->", new_linked_list.search(24))
+print("GET-->", new_linked_list.get(-1))
