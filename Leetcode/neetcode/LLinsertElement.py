@@ -95,9 +95,32 @@ class LinkedList:
         # current.value = target
         temp_node = self.get(index)
         if temp_node:
-            temp_node.value = target
+            temp_node.value = target 
             return True
         return False
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        popped_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            popped_node.next = None
+        self.length -=1
+        
+        return popped_node
+
+    def pop_last(self):
+        popped_node = self.tail
+        temp = self.head
+        while temp.next is not self.tail:
+            temp = temp.next
+        self.tail = temp
+        temp.next = None
+        self.length -=1
 
 
 new_linked_list = LinkedList()  
