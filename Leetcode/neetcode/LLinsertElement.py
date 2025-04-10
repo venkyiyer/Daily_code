@@ -144,6 +144,10 @@ class LinkedList:
         
         return popped_node
 
+    def delete_all(self):
+        self.head = None
+        self.tail = None
+
 
 new_linked_list = LinkedList()  
 new_linked_list.append(10)
