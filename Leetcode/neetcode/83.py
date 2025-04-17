@@ -7,4 +7,4 @@ class Solution:
             
             current = current.mext
         
-        return head
+        return head 
