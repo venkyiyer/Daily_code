@@ -12,3 +12,4 @@ class Solution:
             current = stack.pop()
             res.append(current)
             current = current.right
+        return res
