@@ -2,7 +2,6 @@ class Solution:
     def countSeniors(self, details):
         count = 0
         for d in details:
-            print(d[11:13])
             if int(d[11:13]) > 60:
                 count +=1
         
