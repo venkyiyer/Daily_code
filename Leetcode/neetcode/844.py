@@ -2,7 +2,7 @@ class Solution:
     def backspaceCompare(self, s: str, t: str):
         def nextValidChar(str, index):
             bcksp = 0
-            while index >= 0 and str[index]!= '#':
+            while index >= 0:
                 if bcksp == 0 and str[index]!= '#':
                     break
                 elif str[index] == '#':
@@ -26,3 +26,6 @@ class Solution:
             index_t -=1
         
         return True
+
+obj = Solution()
+print(obj.backspaceCompare(s = "ab#c", t = "ad#c"))
