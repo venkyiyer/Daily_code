@@ -19,10 +19,11 @@ jobs:
       - name: Print statement
         run: echo 'Installed all the requirements!'
     deploy:
+      needs: test
       runs-on: ubuntu-latest
       steps:
         - name: Get code from Github
-            uses: actions/checkout@v3
+          uses: actions/checkout@v3
         - name: Print statement
           run: echo "Deploying the code"
         
