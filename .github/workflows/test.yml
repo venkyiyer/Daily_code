@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Get code from Github
         uses: actions/checkout@v3
+      - name: Get github context information
         run: echo "${{toJSON(github)}}"
       - name: Install Python
         uses: actions/Python@v5
