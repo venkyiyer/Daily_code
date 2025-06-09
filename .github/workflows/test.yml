@@ -2,7 +2,7 @@ name: Demo workflow
 on: 
   push:
     branches:
-      - 'main'
+      - "main"
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -10,6 +10,7 @@ jobs:
       - name: Get code from Github
         uses: actions/checkout@v3
       - name: Install Python
+        uses: actions/checkout@v4
         uses: actions/Python@v5
         with:
           python-version: '3.13'
@@ -17,4 +18,11 @@ jobs:
         uses: pip install requirements.txt
       - name: Print statement
         run: echo 'Installed all the requirements!'
-
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Get code from Github
+            uses: actions/checkout@v3
+        - name: Print statement
+          run: echo "Deploying the code"
+        
