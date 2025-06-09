@@ -9,21 +9,21 @@ jobs:
     steps:
       - name: Get code from Github
         uses: actions/checkout@v3
+        run: echo "${{toJSON(github)}}"
       - name: Install Python
-        uses: actions/checkout@v4
         uses: actions/Python@v5
         with:
           python-version: '3.13'
       - name: Install requirements.txt
-        uses: pip install requirements.txt
+        run: pip install -r requirements.txt
       - name: Print statement
         run: echo 'Installed all the requirements!'
-    deploy:
-      needs: test
-      runs-on: ubuntu-latest
-      steps:
-        - name: Get code from Github
-          uses: actions/checkout@v3
-        - name: Print statement
-          run: echo "Deploying the code"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code from Github
+        uses: actions/checkout@v3
+      - name: Print statement
+        run: echo "Deploying the code"
         
