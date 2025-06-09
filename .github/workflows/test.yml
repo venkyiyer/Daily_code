@@ -12,7 +12,7 @@ jobs:
       - name: Get github context information
         run: echo "${{toJSON(github)}}"
       - name: Install Python
-        uses: actions/Python@v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.13'
       - name: Install requirements.txt
