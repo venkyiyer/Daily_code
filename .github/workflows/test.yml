@@ -1,8 +1,14 @@
 name: Demo workflow
+
 on: 
   push:
-    branches:
+    branches: # Event filters
       - "main"
+  pull_request:
+    types: opened
+  issues: # Events
+    types: opened # Activity types
+
 jobs:
   test:
     runs-on: ubuntu-latest
