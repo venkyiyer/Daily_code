@@ -1,15 +1,12 @@
-prices = [7,6,4,3,1]
+class Solution:
+    def maxProfit(self, prices):
+        profit = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i-1]:
+                profit += prices[i] - prices[i-1]
 
-l , r = 0,1 
-maxProfit = 0
+        return profit
 
-while r < len(prices):
-    if prices[l] < prices[r]:
-        profit = prices[r] - prices[l]
-        maxProfit += profit 
-        l+=1   
-    else:
-        l=r
-    r+=1
+obj = Solution()
+print(obj.maxProfit(prices = [7,1,5,3,6,4]))
 
-print(maxProfit)

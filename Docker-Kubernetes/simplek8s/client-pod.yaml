@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: client-pod
-  labels:
-    component: web
+  name: ngnixpod
 spec:
   containers:
-    - name: client
-      image: stephengrider/multi-client
+    - name: ngnix-container
+      image: nginx:latest
       ports:
-        - containerPort: 3000
+        - containerPort: 80
