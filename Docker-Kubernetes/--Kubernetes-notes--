@@ -74,7 +74,7 @@ Any labels that matches the selector, the service will forward to all those pods
             component: web
 
 When kind: Service
-It is used to setup networking in a Kubernetes cluster
+It is used to setup networking in a Kubernetes cluster. It is a way to expose an application running on a set of pods as a network service
 
 There are 4 types of sub-services:
  - ClusterIP:

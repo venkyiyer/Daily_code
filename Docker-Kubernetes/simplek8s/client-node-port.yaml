@@ -6,7 +6,8 @@ spec:
   type: NodePort
   ports:
     - port: 3050
-      targetPort: 3000
+      targetPort: 80
       nodePort: 31515
+      protocol: TCP
   selector:
-    component: web
+    component: ngnixpod
