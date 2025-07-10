@@ -1,4 +1,4 @@
-def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+def asteroidCollision(self, asteroids):
     stack = []
     for i in asteroids:
         while stack and i<0 and stack[-1] >0:
