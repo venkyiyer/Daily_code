@@ -10,7 +10,9 @@ class Solution:
                 if delete_count > 0:
                     delete_count -= 1
                 else:
-                    result.append(s[i]  )
+                    result.append(s[i])
+        
+        return ''.join(reversed(result))
 
 obj = Solution()
 print(obj.clearDigits("cb34"))
