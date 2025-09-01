@@ -4,6 +4,7 @@ class Solution:
 
         while l< r:
 
+            res = s[l].isalnum()
             while l < r and not s[l].isalnum():
                 l +=1
 
