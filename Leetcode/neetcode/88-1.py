@@ -1,5 +1,5 @@
 class Solution:
-    def merge(self, nums1, nums2)
+    def merge(self, nums1, nums2):
         last = m + n -1 
         while m>0 and n>0:
             if nums1[m-1]>nums2[n-1]:
