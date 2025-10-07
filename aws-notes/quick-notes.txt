@@ -1,0 +1,11 @@
+Quick Notes
+-----------
+
+**IAM
+-----
+Users: are people within your organization, and can be grouped
+Groups: only contain users, not other groups
+
+Users don’t have to belong to a group, and user can belong to multiple groups
+
+Policies: Users or Groups can be assigned JSON documents called policies. Policies define permissions of the users
