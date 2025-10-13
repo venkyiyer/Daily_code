@@ -9,3 +9,11 @@ Groups: only contain users, not other groups
 Users don’t have to belong to a group, and user can belong to multiple groups
 
 Policies: Users or Groups can be assigned JSON documents called policies. Policies define permissions of the users
+
+IAM Roles: Some AWS service will need to perform actions on your behalf. To do so, we will assign permissions to AWS services with IAM Roles
+
+**EC2
+-----
+EC2: A virtual server where you can host your code, webapp, etc. 
+Securitry group: A security group controls the traffic that is allowed to reach and leave the resources that it is associated with. For example, after you associate a security group with an EC2 instance, it controls the inbound and outbound traffic for the instance.
+They control how traffic is allowed into or out of our EC2 Instances. Security groups rules can reference by IP or by security group
