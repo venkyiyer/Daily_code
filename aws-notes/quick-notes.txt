@@ -16,4 +16,8 @@ IAM Roles: Some AWS service will need to perform actions on your behalf. To do s
 -----
 EC2: A virtual server where you can host your code, webapp, etc. 
 Securitry group: A security group controls the traffic that is allowed to reach and leave the resources that it is associated with. For example, after you associate a security group with an EC2 instance, it controls the inbound and outbound traffic for the instance.
-They control how traffic is allowed into or out of our EC2 Instances. Security groups rules can reference by IP or by security group
+They control how traffic is allowed into or out of our EC2 Instances. Security groups rules can reference by IP or by security group.
+All inbound traffic is blocked by default. All outbound traffic is authorised by default.
+
+
+
