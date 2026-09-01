@@ -13,4 +13,4 @@ class Solution:
         return True
 
 obj = Solution()
-print(obj.validPalindrome("venkatesh"))
+print(obj.validPalindrome("abbda"))
