@@ -13,3 +13,4 @@ class Solution:
                 stack.append(int(op))
 
         return sum(stack)
+    
