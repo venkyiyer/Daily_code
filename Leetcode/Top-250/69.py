@@ -2,7 +2,7 @@ class Solution:
     def mySqrt(self, x):
         l, r = 0, x
         res = 0
-        while l < r: 
+        while l <= r: 
             m = l + ((r - l) //2)
             if m ** 2 > x:
                 r = m -1
